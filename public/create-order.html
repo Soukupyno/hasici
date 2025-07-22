@@ -327,8 +327,8 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
   }
 
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 8px;
   }
 
   h1, .header-refreshment h1 {
@@ -336,10 +336,15 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
   }
 
   .item {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
+     min-height: 80px;
+    width: 80px;
     padding: 12px !important;
   }
-
+.item img {
+    max-width: 50px;
+    max-height: 50px;
+  }
   button {
     padding: 10px 18px !important;
     font-size: 1rem !important;
