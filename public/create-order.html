@@ -648,7 +648,6 @@ function updateEditMode(isEditing) {
       div.innerHTML = `
         <img src="${drink.img}" alt="${drink.name}">
         <div>${drink.name}</div>
-        <div class="price">${drink.price} Kč</div>
       `;
       div.onclick = () => addToCart(drink.name, drink.price);
       itemsGrid.appendChild(div);
