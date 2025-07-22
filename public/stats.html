@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <title>Statistika prodeje</title>
+  <style>
+.header-refreshment {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.header-refreshment h1 {
+  font-size: 4rem; /* Zvětšení textu */
+  color: #e74c3c;  /* Například červená barva pro výraznost */
+  margin: 0;
+  user-select: none;
+}
+
+.refreshment-img {
+  width: 150px; /* Velikost obrázku */
+  height: auto;
+}
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    h1 { color: #333; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px 0; font-size: 1.2rem; }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="window.location.href='create-order.html'">Vytvoření objednávky</button>
+  <button onclick="window.location.href='orders-list.html'">Přehled objednávek</button>
+  <button onclick="window.location.href='stats.html'">Statistiky</button>
+<div class="header-refreshment">
+    <img src="images/firefighter.png" alt="Hasiči" class="refreshment-img" />
+    <h1>OBČERSTVENÍ U HASIČŮ</h1>
+  </div>
+  
+  <div id="notification"></div>
+
+  <h1>Statistika prodeje nápojů</h1>
+  <div id="stats-container"><em>Načítám data...</em></div>
+  <button onclick="deleteStats()">Smazat statistiky</button>
+
+  <script>
+    async function loadStats() {
+      const res = await fetch("/api/stats");
+      const data = await res.json();
+
+      const container = document.getElementById("stats-container");
+
+      if (!data.items || Object.keys(data.items).length === 0) {
+        container.innerHTML = "<p><em>Žádná data k zobrazení.</em></p>";
+        return;
+      }
+
+      const entries = Object.entries(data.items).sort((a, b) => b[1].count - a[1].count);
+
+      container.innerHTML = "<ul>" + entries
+        .map(([name, info]) => `<li><strong>${name}</strong>: ${info.count} ks, ${info.revenue} Kč</li>`)
+        .join("") + "</ul>";
+
+      container.innerHTML += `<p><strong>Celkový obrat:</strong> ${data.totalRevenue} Kč</p>`;
+    }
+
+    async function deleteStats() {
+      const confirmed = confirm("Opravdu chcete smazat všechny statistiky?");
+      if (!confirmed) return;
+
+      const res = await fetch("/api/stats", {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        alert("Statistiky byly úspěšně smazány.");
+        loadStats();
+      } else {
+        alert("Chyba při mazání statistik.");
+      }
+    }
+
+    loadStats();
+  </script>
+</body>
+
+</html>
