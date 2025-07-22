@@ -25,7 +25,14 @@
   width: 150px; /* Velikost obrázku */
   height: auto;
 }
-
+item-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-top: 8px;
+  text-align: center;
+  user-select: none;
+}
 
 .item.small {
   width: 65px;
@@ -647,7 +654,7 @@ function updateEditMode(isEditing) {
 
       div.innerHTML = `
         <img src="${drink.img}" alt="${drink.name}">
-        <div>${drink.name}</div>
+       <div class="item-name">${drink.name}</div>
       `;
       div.onclick = () => addToCart(drink.name, drink.price);
       itemsGrid.appendChild(div);
