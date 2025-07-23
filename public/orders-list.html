@@ -145,11 +145,13 @@ body.font-large .order ul li img {
     }
 
     .order ul {
-      padding-left: 0px;
-      margin: 0 0 12px 0;
-      line-height: 1.5;
-      list-style: none;
-    }
+  display: grid;
+  grid-template-columns: 1fr; /* výchozí - 1 sloupec */
+  gap: 12px;
+  padding: 0;
+  margin: 0 0 12px 0;
+  list-style: none;
+}
 
     .order ul li {
       cursor: pointer;
@@ -235,7 +237,11 @@ body.font-large .order ul li img {
       user-select: none;
       pointer-events: none;
     }
-
+@media screen and (min-width: 700px) {
+  .order ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
     @media (max-width: 480px) {
       .order ul li {
         font-size: 1.3em;
