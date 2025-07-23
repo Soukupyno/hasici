@@ -237,9 +237,18 @@ body.font-large .order ul li img {
       user-select: none;
       pointer-events: none;
     }
-@media screen and (min-width: 700px) {
+media screen and (min-width: 700px) {
   .order ul {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .order ul li:nth-child(odd) {
+    border-right: 2px solid #ccc;
+    padding-right: 10px;
+  }
+
+  .order ul li:nth-child(even) {
+    padding-left: 10px;
   }
 }
     @media (max-width: 480px) {
