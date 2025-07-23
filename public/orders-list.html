@@ -151,22 +151,28 @@ body.font-large .order ul li img {
   padding: 0;
   margin: 0 0 12px 0;
   list-style: none;
+      align-items: stretch;
 }
 
     .order ul li {
-      cursor: pointer;
-      padding: 0px 0;
-      user-select: none;
-      font-size: 1.7em;
-      font-weight: 600;
-      color: inherit;
-      margin-bottom: 0px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.7em;
+  font-weight: 600;
+  color: inherit;
+  display: flex;
+  flex-direction: column; /* nový řádek */
+  justify-content: space-between; /* nový řádek */
+  text-align: center; /* nový řádek */
+  gap: 12px;
+  padding: 15px 20px; /* sjednoceno */
+  border: 1px solid #ccc; /* sjednoceno */
+  border-radius: 10px; /* sjednoceno */
+  background: #fafafa; /* sjednoceno */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sjednoceno */
+  height: 100%; /* nový řádek */
+  transition: box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
+}
     .order ul li img {
   width: auto;
   height: auto;
