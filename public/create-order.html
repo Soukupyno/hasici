@@ -492,7 +492,12 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
 
  
   <script>
-    
+    function scrollToCategory(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
 
     const drinks = [
 {
@@ -701,19 +706,19 @@ function updateEditMode(isEditing) {
 function renderItems() {
   itemsGrid.innerHTML = "";
   drinks.forEach(group => {
-    // Titulek kategorie
-    const categoryTitle = document.createElement('h2');
-    categoryTitle.textContent = group.category || "Nezařazené";
-    categoryTitle.id = (group.category || "Nezařazené").toLowerCase().replace(/\s+/g, '-');
-    categoryTitle.style.marginTop = "30px";
-    categoryTitle.style.gridColumn = "1 / -1";
-    itemsGrid.appendChild(categoryTitle);
+    if (group.category) {
+      const heading = document.createElement('h2');
+      heading.textContent = group.category;
+      heading.id = group.category.toLowerCase().replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // odstraní diakritiku
+      heading.style.marginTop = "30px";
+      heading.style.gridColumn = "1 / -1";
+      itemsGrid.appendChild(heading);
+    }
 
     // Položky v kategorii
     group.items.forEach(drink => {
       const div = document.createElement("div");
       div.className = "item";
-
       if (drink.name.includes("0,3l") || drink.name.includes("0,02l")) {
         div.classList.add("small");
       }
@@ -727,6 +732,7 @@ function renderItems() {
     });
   });
 }
+
 
 
 
