@@ -334,9 +334,11 @@ body.font-large .order ul {
   gap: 12px;
 }
 @media screen and (max-width: 768px) and (orientation: portrait) {
-  .order ul {
-    display: flex;
-    flex-direction: column;
+  body.font-small .order ul,
+  body.font-medium .order ul,
+  body.font-large .order ul {
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .order ul li {
@@ -353,6 +355,7 @@ body.font-large .order ul {
     border-bottom: none;
   }
 }
+
 
 
 
