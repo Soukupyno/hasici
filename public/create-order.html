@@ -455,12 +455,14 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
   <button onclick="window.location.href='orders-list.html'">Přehled objednávek</button>
   <button onclick="window.location.href='stats.html'">Statistiky</button>
 <div id="category-nav">
-  <button onclick="scrollToCategory('tocene-napoje')">Točené nápoje</button>
-  <button onclick="scrollToCategory('ostatni-napoje')">Ostatní nápoje</button>
-  <button onclick="scrollToCategory('michane-napoje')">Míchané nápoje</button>
-  <button onclick="scrollToCategory('lihoviny')">Lihoviny</button>
+  <button onclick="scrollToCategory('top')">Top</button>
+<button onclick="scrollToCategory('tocene')">Tocene</button>
+  <button onclick="scrollToCategory('ostatni')">Ostatní</button>
+  <button onclick="scrollToCategory('michane')">Míchané</button>
+  <button onclick="scrollToCategory('panaky')">Panáky</button>
   <button onclick="scrollToCategory('vino')">Víno</button>
   <button onclick="scrollToCategory('kava')">Káva</button>
+  
 </div>
 
   <div class="grid" id="items-grid"></div>
@@ -504,7 +506,7 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
 
     const drinks = [
 {
-    category: "",
+    category: "TOP",
     items: [
 
 { name: "Nealko TCHÝNĚ 0,5l", price: 40, img: "images/tchyne.png" },
@@ -536,7 +538,7 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
     ],
   },
       {
-    category: "Točené nápoje",
+    category: "Točené",
     items: [
 { name: "Nealko TCHÝNĚ 0,3l", price: 30, img: "images/tchyne.png" },
 { name: "Nealko TCHÝNĚ POMELO 0,3l", price: 30, img: "images/tchyne_pomelo.png" },
@@ -550,7 +552,7 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
     ],
   },
   {
-    category: "Ostatní nápoje",
+    category: "Ostatní",
     items: [
 { name: "Coca-Cola 0,3l", price: 25, img: "images/cola.png" },
 { name: "Tonic 0,3l", price: 25, img: "images/tonic.png" },
@@ -569,15 +571,15 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
       { name: "Soda 0,5l", price: 20, img: "images/soda.png" },
      
       { name: "Bazén", price: 40, img: "images/pool.png" },
-      { name: "Voda Petlivá", price: 20, img: "images/perliva.png" },
-      { name: "Voda Nepetlivá", price: 20, img: "images/neperliva.png" },
+      { name: "Voda Perlivá", price: 20, img: "images/perliva.png" },
+      { name: "Voda Neperlivá", price: 20, img: "images/neperliva.png" },
       { name: "Red Bull", price: 60, img: "images/redbull.png" },
       
 
     ],
   },
   {
-    category: "Míchané nápoje",
+    category: "Míchané",
     items: [
       { name: "Aperol Spritz", price: 90, img: "images/aperol.png" },
        { name: "Gin + Tonic rose", price: 80, img: "images/gin_tonic_rose.png" },
@@ -592,7 +594,7 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
     ],
   },
   {
-    category: "Lihoviny",
+    category: "Panáky",
     items: [
       { name: "Jagemeister 0,04l", price: 50, img: "images/jager.png" },
          { name: "Slivovice 0,04l", price: 50, img: "images/slivovice.png" },
