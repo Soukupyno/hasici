@@ -421,11 +421,12 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
 }
 #category-nav {
   position: sticky;
-  top: 0;
+  top: 50px;
   background: #ffffff;
   z-index: 100;
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   border-bottom: 2px solid #ddd;
   margin-bottom: 20px;
@@ -701,9 +702,9 @@ function updateEditMode(isEditing) {
   itemsGrid.innerHTML = "";
   drinks.forEach(group => {
     // Titulek kategorie
-    const heading = document.createElement("h2");
-heading.textContent = group.category;
-heading.id = group.category.replace(/\s+/g, '-').toLowerCase(); // např. "Míchané nápoje" → "michane-napoje"
+    const categoryTitle = document.createElement('h2');
+categoryTitle.textContent = categoryName;
+categoryTitle.id = categoryName.toLowerCase().replace(/\s+/g, '-');
     heading.style.marginTop = "30px";
     heading.style.gridColumn = "1 / -1";
     itemsGrid.appendChild(heading);
