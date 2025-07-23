@@ -495,7 +495,9 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
     function scrollToCategory(id) {
   const element = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    const yOffset = -100; // Posune o 100px výš (změň dle výšky tvého košíku)
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   }
 }
 
