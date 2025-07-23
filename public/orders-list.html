@@ -337,24 +337,28 @@ body.font-large .order ul {
   body.font-small .order ul,
   body.font-medium .order ul,
   body.font-large .order ul {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
   }
 
   .order ul li {
-    flex-direction: row;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0;
-    background: none;
-    box-shadow: none;
-    padding: 10px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    text-align: center;
   }
 
-  .order ul li:last-child {
-    border-bottom: none;
+  .order ul li img {
+    margin-bottom: 8px;
   }
 }
+
 
 
 
