@@ -242,23 +242,16 @@ body.font-large .order ul li img {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .order ul li:nth-child(odd) {
-    position: relative; 
-    border-right: 2px solid #ccc;
-    padding-right: 0px;
+  .order ul li {
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
   }
-  .order ul li:nth-child(odd)::after {
-    content: "";
-    position: absolute;
-    top: 5%;
-    bottom: 5%;
-    right: 0;
-    width: 4px;
-    background-color: #ccc;
-    border-radius: 2px;
-  }
-  .order ul li:nth-child(even) {
-    padding-left: 10px;
+  .order ul li:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 }
 
