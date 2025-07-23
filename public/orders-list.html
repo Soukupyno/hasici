@@ -333,7 +333,26 @@ body.font-large .order ul {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .order ul {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .order ul li {
+    flex-direction: row;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    padding: 10px 0;
+  }
+
+  .order ul li:last-child {
+    border-bottom: none;
+  }
+}
 
 
 
