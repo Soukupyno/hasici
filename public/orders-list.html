@@ -160,7 +160,7 @@ body.font-large .order ul li img {
       font-size: 1.7em;
       font-weight: 600;
       color: inherit;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -247,20 +247,21 @@ body.font-large .order ul li img {
     border-right: 2px solid #ccc;
     padding-right: 0px;
   }
-.order ul li:nth-child(odd)::after {
-  content: "";
-  position: absolute;
-  top: 5%;
-  bottom: 5%;
-  right: 0;
-  width: 4px;
-  background-color: #ccc;
-  border-radius: 2px;
-}
+  .order ul li:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    right: 0;
+    width: 4px;
+    background-color: #ccc;
+    border-radius: 2px;
+  }
   .order ul li:nth-child(even) {
     padding-left: 10px;
   }
 }
+
     @media (max-width: 480px) {
       .order ul li {
         font-size: 1.3em;
