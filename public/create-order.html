@@ -419,6 +419,30 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
   color: #2c3e50;
   text-align: center;
 }
+#category-nav {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 100;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+#category-nav button {
+  padding: 8px 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #2c3e50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#category-nav button:hover {
+  background: #34495e;
+}
 
 
 
@@ -428,7 +452,14 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
  <button onclick="window.location.href='create-order.html'">Vytvoření objednávky</button>
   <button onclick="window.location.href='orders-list.html'">Přehled objednávek</button>
   <button onclick="window.location.href='stats.html'">Statistiky</button>
-
+<div id="category-nav">
+  <button onclick="scrollToCategory('tocene-napoje')">Točené nápoje</button>
+  <button onclick="scrollToCategory('ostatni-napoje')">Ostatní nápoje</button>
+  <button onclick="scrollToCategory('michane-napoje')">Míchané nápoje</button>
+  <button onclick="scrollToCategory('lihoviny')">Lihoviny</button>
+  <button onclick="scrollToCategory('vino')">Víno</button>
+  <button onclick="scrollToCategory('kava')">Káva</button>
+</div>
 
   <div class="grid" id="items-grid"></div>
 
@@ -671,7 +702,8 @@ function updateEditMode(isEditing) {
   drinks.forEach(group => {
     // Titulek kategorie
     const heading = document.createElement("h2");
-    heading.textContent = group.category;
+heading.textContent = group.category;
+heading.id = group.category.replace(/\s+/g, '-').toLowerCase(); // např. "Míchané nápoje" → "michane-napoje"
     heading.style.marginTop = "30px";
     heading.style.gridColumn = "1 / -1";
     itemsGrid.appendChild(heading);
@@ -949,6 +981,12 @@ function updateTotal(newTotal) {
   socket.on("ordersUpdated", () => {
     loadOrders(); // znovu načte objednávky, když server oznámí update
   });
+  function scrollToCategory(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
 </script>
 
 </body>
