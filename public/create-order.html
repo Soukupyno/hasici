@@ -433,6 +433,7 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
 }
 
 #category-nav button {
+  display: inline-block;     /* důležité pro přirozenou šířku podle obsahu */
   padding: 8px 14px;
   font-size: 1rem;
   border: none;
@@ -441,7 +442,9 @@ margin-right: 580px; /* přidáno, aby obsah nebyl pod košíkem */
   color: white;
   cursor: pointer;
   transition: background 0.2s;
+  white-space: nowrap;       /* zabrání zalomení textu uvnitř tlačítka */
 }
+
 #category-nav button:hover {
   background: #34495e;
 }
