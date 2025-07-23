@@ -243,10 +243,20 @@ body.font-large .order ul li img {
   }
 
   .order ul li:nth-child(odd) {
+    position: relative; 
     border-right: 2px solid #ccc;
-    padding-right: 10px;
+    padding-right: 0px;
   }
-
+.order ul li:nth-child(odd)::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  right: 0;
+  width: 4px;
+  background-color: #ccc;
+  border-radius: 2px;
+}
   .order ul li:nth-child(even) {
     padding-left: 10px;
   }
