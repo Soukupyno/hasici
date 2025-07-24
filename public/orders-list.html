@@ -442,7 +442,7 @@ body.font-large .order ul {
     function renderOrders(orders) {
       ordersContainer.innerHTML = "";
       orders
-        .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)) // od nejstarší po nejnovější
+        .sort((a, b) => a.id - b.id) // seřazení podle ID
         .forEach((order, index) => {
           let orderNumber = typeof order.id === "number" ? order.id : index + 1;
           const div = document.createElement("div");
